@@ -1,0 +1,21 @@
+
+- name: install latest version of apache server
+  yum: name=httpd
+       state=latest
+
+- name: start apache server
+  become: yes
+  command: systemctl start httpd
+
+- name: enable apache server
+  become: yes
+  command: systemctl enable httpd
+
+- name: allow http packet
+  firewalld: service=http
+             permanent=true
+             state=enabled
+
+- name: commit firewalld config
+  become: yes
+  command: systemctl restart firewalld 
