@@ -24,6 +24,9 @@
     - httpd
     - php
     - php-pear
+
+- name: update pear channel
+  command: pear channel-update pear.php.net
  
 - name: start apache server
   become: yes
