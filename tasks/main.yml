@@ -23,6 +23,7 @@
   with_items:
     - httpd
     - php
+    - php-pear
  
 - name: start apache server
   become: yes
